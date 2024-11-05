@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "./Redux/TodoSlice";
+import { addTodo } from "../Redux/TodoSlice";
+import styles from '../styles/forms.module.scss'
 
-export const Forms = ({ text, setText }) => {
+interface FormsProps {
+  text: string
+  setText: (a: string) => void
+}
+
+export const Forms: React.FC<FormsProps> = ({ text, setText }) => {
   const dispatch = useDispatch()
   return (
-    <div className="forms">
+    <div className={styles.forms}>
       <input
         type="text"
         placeholder="Введите Ваш текст ..."
